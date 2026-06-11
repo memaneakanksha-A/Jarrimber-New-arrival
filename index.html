@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Jarrimber – Notes from the Workshop</title>
+  <link rel="stylesheet" href="https://use.typekit.net/hok6lgj.css">
+  <style>
+    /* ── Reset ── */
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; display: block; }
+    body { margin: 0; padding: 0; background-color: #e5e5e5; font-family: Georgia, 'Times New Roman', serif; }
+
+    /* ── Wrapper ── */
+    .email-wrapper { background-color: #e5e5e5; padding: 20px 0; }
+    .email-body   { background-color: #ffffff; max-width: 600px; margin: 0 auto; }
+
+    @font-face {
+      font-family: 'Sohne';
+      src: url('./assets/Fonts/soehne-leicht.woff2') format('woff2');
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'CX80';
+      src: url('./assets/fonts/CX80/CX80Trial-Regular.otf') format('opentype');
+      font-weight: 400;
+    }
+
+    /* ── Hero ── */
+    .hero-logo {
+      text-align: center;
+      padding: 28px 0 20px;
+      background: #ffffff;
+    }
+
+    .hero-logo img {
+      height: 34.245px;
+      aspect-ratio: 139 / 17;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .hero-logo span {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 20px;
+      letter-spacing: 6px;
+      font-weight: 300;
+      color: #1a1a1a;
+      text-transform: uppercase;
+      display: flex;
+      width: 600px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    /* ── Intro block ── */
+    .intro-block  { background: #f9f8f6; text-align: center; padding: 64px 64px 64px; }
+
+    .edition-label {
+      color: #009AA4;
+      text-align: center;
+      font-family: 'presicav', sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .intro-heading {
+      align-self: stretch;
+      color: #000;
+      text-align: center;
+      font-family: "classico-urw", serif;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 56px;
+      margin-top: 56px;
+      margin-bottom: 56px;
+    }
+
+    .intro-body {
+      align-self: stretch;
+      color: #706862;
+      text-align: center;
+      font-family: 'Sohne', sans-serif;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 34px;
+    }
+
+    /* ── Buttons ── */
+    .btn-wrap-intro        { display: block; margin-top: 50px; text-align: center; }
+    .btn-wrap-about        { display: block; margin-top: 56px; text-align: center; }
+    .btn-wrap-custom       { display: block; margin-top: 56px; text-align: center; }
+    .btn-wrap-testimonials { display: block; margin-top: 0;    text-align: center; }
+    .btn-wrap-products     { display: block; margin-top: 0;    text-align: center; }
+
+    .btn-teal {
+      display: inline-block;
+      background-color: #2ab5a8;
+      color: #FFF !important;
+      font-family: 'CX80', sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22px;
+      text-decoration: none;
+      padding: 11px 24px;
+      border-radius: 30px;
+    }
+
+    /* ── Section headings ── */
+    .section-heading {
+      align-self: stretch;
+      color: #000;
+      text-align: center;
+      font-family: "classico-urw", serif;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 56px;
+      padding: 40px 40px 35px;
+      margin: 0;
+      background: #ffffff;
+    }
+
+    /* ── Product grid ── */
+    .product-grid { background: #ffffff; padding: 0 40px 35px; }
+    .product-row  { width: 100%; border-collapse: collapse; }
+    .product-cell { width: 50%; padding: 0 8px 24px; vertical-align: top; }
+
+    .product-cell img {
+      height: 309px;
+      align-self: stretch;
+    }
+
+    .product-name {
+      align-self: stretch;
+      color: #000;
+      font-family: 'Sohne', sans-serif;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 28px;
+      margin: 10px 0 4px;
+    }
+
+    .product-link {
+      color: #231F20;
+      font-family: 'Sohne', sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22px;
+      text-decoration: none;
+    }
+
+    .product-link::after {
+      content: "";
+      display: inline-block;
+      width: 18px;
+      height: 8px;
+      margin-left: 6px;
+      background: url("./Images/Icon.png") no-repeat center;
+      background-size: contain;
+      vertical-align: middle;
+    }
+
+    /* ── Find out more row ── */
+    .find-more-row { text-align: center; padding: 0px 0 40px; background: #ffffff; }
+
+    /* ── Brand statement ── */
+    .brand-block  { background: #1a1a1a; padding: 64px 64px; text-align: center; }
+
+    .brand-heading {
+      color: #F9F9F7;
+      text-align: center;
+      font-family: "classico-urw", serif;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 42px;
+      margin: 0 0 56px;
+    }
+
+    .brand-body {
+      align-self: stretch;
+      color: #DBD6D1;
+      text-align: center;
+      font-family: 'Sohne', sans-serif;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 34px;
+      margin: 0 0 10px;
+    }
+
+    /* ── Custom section ── */
+    .custom-block { background: #ffffff; padding: 40px 40px; text-align: center; }
+
+    .custom-img img {
+      width: 520px;
+      height: 294px;
+      flex-shrink: 0;
+      aspect-ratio: 237 / 134;
+      object-fit: cover;
+    }
+
+    .custom-heading {
+      color: #231F20;
+      text-align: center;
+      font-family: "classico-urw", serif;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 42px;
+      margin: 56px 0 56px;
+    }
+
+    .custom-body {
+      align-self: stretch;
+      color: #706862;
+      text-align: center;
+      font-family: 'Sohne', sans-serif;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 34px;
+      margin: 0 0 6px;
+    }
+
+    /* ── Testimonials ── */
+    .testimonial-block { background: #f0eeea; padding: 40px 40px 40px; text-align: center; }
+
+    .testimonial-heading {
+      color: #231F20;
+      text-align: center;
+      font-family: "classico-urw", serif;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 42px;
+      margin: 0 0 56px;
+    }
+
+    .testimonial-quote {
+      align-self: stretch;
+      color: #706862;
+      text-align: center;
+      font-family: 'Sohne', sans-serif;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 34px;
+    }
+
+    .testimonial-divider {
+      width: 307px;
+      height: 1px;
+      border: none;
+      background: #009AA4;
+      margin: 32px auto;
+    }
+
+    .testimonial-name {
+      align-self: stretch;
+      color: #231F20;
+      text-align: center;
+      font-family: 'presicav', sans-serif;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      margin: 0 0 56px;
+    }
+
+    /* ── Footer ── */
+    .footer-block {
+      background: #1a1a1a;
+      padding: 64px 64px 64px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      width: 255px;
+      height: 31px;
+      aspect-ratio: 255 / 31;
+      display: block;
+      margin: 0 auto 56px;
+    }
+
+    .footer-label {
+      color: #009AA4;
+      text-align: center;
+      font-family: "presicav", sans-serif;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      margin: 0 0 32px;
+    }
+
+    .footer-location {
+      color: #F9F9F7;
+      text-align: center;
+      font-family: 'Sohne', sans-serif;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 34px;
+      margin: 0 0 15px;
+    }
+
+    .footer-contact {
+      margin: 0 0 56px;
+    }
+
+    .footer-contact-line {
+      color: #8F8884;
+      font-family: 'Sohne', sans-serif;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 28px;
+      margin: 0 0 16px;
+    }
+
+    .footer-contact-line:last-child {
+      margin-bottom: 0;
+    }
+
+    .footer-contact a { color: #bbb; text-decoration: none; }
+
+    .footer-visit-label {
+      color: #009AA4;
+      text-align: center;
+      font-family: "presicav", sans-serif;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      margin: 56px 0 32px;
+    }
+
+    .footer-url {
+      color: #F9F9F7;
+      text-align: center;
+      font-family: "classico-urw", serif;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 34px;
+      margin: 0;
+    }
+
+    .footer-url a { color: #ffffff; text-decoration: none; }
+
+    /* ── Mobile ── */
+    @media only screen and (max-width: 480px) {
+      .intro-block, .brand-block, .testimonial-block, .custom-block, .footer-block {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+      }
+      .intro-heading { font-size: 24px !important; }
+      .product-cell  { display: block !important; width: 100% !important; padding: 0 0 20px !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="email-wrapper">
+<table class="email-body" width="600" cellpadding="0" cellspacing="0" role="presentation" align="center">
+
+  <!-- ─── LOGO ─── -->
+  <tr>
+    <td class="hero-logo">
+      <a href="https://www.jarrimber.com.au/" style="display:inline-block;">
+        <img src="https://jarrimber-email-template.web.app/Images/Jarrimber Logo Text_black 1.png" alt="Jarrimber" />
+      </a>
+    </td>
+  </tr>
+
+  <!-- ─── HERO IMAGE ─── -->
+  <tr>
+    <td class="hero-img">
+<img src="https://jarrimber-email-template.web.app/Images/Rectangle%202.png" alt="Jarrimber – handcrafted timber furniture" width="600" />    </td>
+  </tr>
+
+  <!-- ─── INTRO BLOCK ─── -->
+  <tr>
+    <td class="intro-block">
+      <p class="edition-label">Edition One</p>
+      <h1 class="intro-heading">Notes from the<br>workshop</h1>
+      <p class="intro-body">At Jarrimber, we craft bespoke solid timber<br>furniture by hand in our Perth workshop.</p>
+      <p class="intro-body">Through these regular updates, we'll share new<br>arrivals, best sellers, timber selection advice,<br>furniture care tips, workshop stories and the latest<br>pieces taking shape.</p>
+      <p class="intro-body">We hope you enjoy this first edition of<br>Notes from the Workshop.</p>
+      <div class="btn-wrap-intro">
+        <a class="btn-teal" href="https://www.jarrimber.com.au/">Find out more <img src="https://jarrimber-email-template.web.app/Images/white-arrow-icon.png" width="24" height="24" style="display: inline-block; vertical-align: middle; margin-left: 8px;" alt=""></a>
+      </div>
+    </td>
+  </tr>
+
+  <!-- ─── NEW ARRIVALS HEADING ─── -->
+  <tr>
+    <td>
+      <h2 class="section-heading">New arrivals</h2>
+    </td>
+  </tr>
+
+  <!-- ─── PRODUCT GRID ROW 1 ─── -->
+  <tr>
+    <td class="product-grid">
+      <table class="product-row" cellpadding="0" cellspacing="0" role="presentation">
+        <tr>
+          <td class="product-cell">
+            <a href="https://www.jarrimber.com.au/products/dining/extension-tables/">
+              <img src="https://jarrimber-email-template.web.app/Images/rectangle 0.png" alt="Floreat Extension Table" />
+            </a>
+            <p class="product-name">Floreat Extension Table</p>
+            <a class="product-link" href="https://www.jarrimber.com.au/products/dining/extension-tables/">Find out more</a>
+          </td>
+          <td class="product-cell">
+            <a href="https://www.jarrimber.com.au/products/living/display-units/">
+              <img src="https://jarrimber-email-template.web.app/Images/Rectangle 4 (1).png" alt="Bassendean Display Unit" />
+            </a>
+            <p class="product-name">Bassendean Display Unit</p>
+            <a class="product-link" href="https://www.jarrimber.com.au/products/living/display-units/">Find out more</a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- ─── PRODUCT GRID ROW 2 ─── -->
+  <tr>
+    <td class="product-grid">
+      <table class="product-row" cellpadding="0" cellspacing="0" role="presentation">
+        <tr>
+          <td class="product-cell">
+            <a href="https://www.jarrimber.com.au/products/bar/bar-stools/bibbulman-boomerang-shoe-seat/">
+              <img src="https://jarrimber-email-template.web.app/Images/Rectangle 4 (2).png" alt="Bibbulman Boomerang Shoe Seat" />
+            </a>
+            <p class="product-name">Bibbulman Boomerang Shoe Seat</p>
+            <a class="product-link" href="https://www.jarrimber.com.au/products/raw-edge/bedside/">Find out more</a>
+          </td>
+          <td class="product-cell">
+            <a href="https://www.jarrimber.com.au/products/living/tv-units/">
+              <img src="https://jarrimber-email-template.web.app/Images/Rectangle 4 (3).png" alt="Mosman Park TV Unit (Medium)" />
+            </a>
+            <p class="product-name">Mosman Park TV Unit (Medium)</p>
+            <a class="product-link" href="https://www.jarrimber.com.au/products/living/tv-units/">Find out more</a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- ─── PRODUCT GRID ROW 3 ─── -->
+  <tr>
+    <td class="product-grid">
+      <table class="product-row" cellpadding="0" cellspacing="0" role="presentation">
+        <tr>
+          <td class="product-cell">
+            <a href="https://www.jarrimber.com.au/products/occasional/coffee-tables/">
+              <img src="https://jarrimber-email-template.web.app/Images/Rectangle 4 (4).png" alt="Mosman Park Coffee Table" />
+            </a>
+            <p class="product-name">Mosman Park Coffee Table</p>
+            <a class="product-link" href="https://www.jarrimber.com.au/products/occasional/coffee-tables/">Find out more</a>
+          </td>
+          <td class="product-cell">
+            <a href="https://www.jarrimber.com.au/products/occasional/hall-tables/">
+              <img src="https://jarrimber-email-template.web.app/Images/Rectangle 4 (5).png" alt="Broome Pool Hall Table" />
+            </a>
+            <p class="product-name">Broome Pool Hall Table</p>
+            <a class="product-link" href="https://www.jarrimber.com.au/products/occasional/hall-tables/">Find out more</a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- ─── FIND OUT MORE CTA ─── -->
+  <tr>
+    <td class="find-more-row">
+      <div class="btn-wrap-products">
+        <a class="btn-teal" href="https://www.jarrimber.com.au/products/">Find out more <img src="https://jarrimber-email-template.web.app/Images/white-arrow-icon.png" width="24" height="24" style="display: inline-block; vertical-align: middle; margin-left: 8px;" alt=""></a>
+      </div>
+    </td>
+  </tr>
+
+  <!-- ─── BRAND STATEMENT ─── -->
+  <tr>
+    <td class="brand-block">
+      <p class="brand-heading">Solid timber furniture,<br>handcrafted in Western Australia,<br>one custom piece at a time.</p>
+      <p class="brand-body">At Jarrimber, we craft solid timber furniture by hand<br>in our Perth workshop using carefully selected<br>Australian hardwoods, including Western Australian<br>Marri and Jarrah, Tasmanian Blackwood and Oak, and<br>Victorian Ash and Blackbutt.</p>
+      <p class="brand-body">Timber is chosen for its grain, strength, character and<br>natural variation. The result is furniture shaped with<br>care and built to last.</p>
+      <!-- ✅ FIX: wrapper div carries the 56px margin-top, not the <a> tag -->
+      <div class="btn-wrap-about">
+        <a class="btn-teal" href="https://www.jarrimber.com.au/about/">Discover our story <img src="https://jarrimber-email-template.web.app/Images/white-arrow-icon.png" width="24" height="24" style="display: inline-block; vertical-align: middle; margin-left: 8px;" alt=""></a>
+      </div>
+    </td>
+  </tr>
+
+  <!-- ─── CUSTOM SECTION ─── -->
+  <tr>
+    <td class="custom-block">
+      <div class="custom-img">
+        <img
+          src="https://www.jarrimber.com.au/wp-content/uploads/2025/06/a28547568de89cee6e41ccee6c85196fd1b707aa-1024x576.avif"
+          alt="Custom timber furniture, made to order"
+          width="520"
+        />
+      </div>
+      <h2 class="custom-heading">Custom timber furniture,<br>made to order.</h2>
+      <p class="custom-body">Every home is different, which is why many of our<br>pieces begin with a conversation. We work with<br>clients to create furniture tailored to their space,<br>requirements and timber preferences.</p>
+      <p class="custom-body">From dining tables and entertainment units to beds,<br>vanities and one-off commissions, each piece is<br>designed and handcrafted in our Perth workshop.</p>
+      <div class="btn-wrap-custom">
+        <a class="btn-teal" href="https://www.jarrimber.com.au/custom-design/">Find out more <img src="https://jarrimber-email-template.web.app/Images/white-arrow-icon.png" width="24" height="24" style="display: inline-block; vertical-align: middle; margin-left: 8px;" alt=""></a>
+      </div>
+    </td>
+  </tr>
+
+  <!-- ─── TESTIMONIALS ─── -->
+  <tr>
+    <td class="testimonial-block">
+      <h2 class="testimonial-heading">Testimonials</h2>
+      <p class="testimonial-quote">
+        Todd was wonderful when ordering our custom-made <br> bedroom suite, chest of drawers and mirror.
+        We<br> had been looking at furniture for a long time when we <br>discovered Jarrimber, and it definitely did not<br>
+        disappoint. I'm so in love with our pieces and am <br>itching to acquire more already.
+      </p>
+      <hr class="testimonial-divider" />
+      <p class="testimonial-name">Jane Donnelly, Bunbury WA</p>
+      <div class="btn-wrap-testimonials">
+        <a class="btn-teal" href="https://www.jarrimber.com.au/testimonials/">Read more testimonials <img src="https://jarrimber-email-template.web.app/Images/white-arrow-icon.png" width="24" height="24" style="display: inline-block; vertical-align: middle; margin-left: 8px;" alt=""></a>
+      </div>
+    </td>
+  </tr>
+
+  <!-- ─── FOOTER ─── -->
+  <tr>
+    <td class="footer-block">
+
+      <img class="footer-logo" src="https://jarrimber-email-template.web.app/Images/Jarrimber Logo Text_White 1.png" alt="Jarrimber" />
+
+      <p class="footer-label">Contact Our Showrooms</p>
+      <p class="footer-location">Jarrimber</p>
+      <div class="footer-contact">
+        <p class="footer-contact-line">60 McDonald St, Osborne Park, WA 6017</p>
+        <p class="footer-contact-line">T <a href="tel:+61894445728">(08) 9444 5728</a></p>
+        <p class="footer-contact-line">E <a href="mailto:info@jarrimber.com.au">info@jarrimber.com.au</a></p>
+      </div>
+
+      <p class="footer-location">Home Base Design and Build Centre</p>
+      <div class="footer-contact">
+        <p class="footer-contact-line">55 Salvado Rd, Subiaco, WA 6008</p>
+        <p class="footer-contact-line">T <a href="tel:+61894445728">(08) 9444 5728</a></p>
+        <p class="footer-contact-line">E <a href="mailto:info@jarrimber.com.au">info@jarrimber.com.au</a></p>
+      </div>
+
+      <p class="footer-visit-label">Visit Us Online</p>
+      <p class="footer-url"><a href="https://www.jarrimber.com.au/">www.jarrimber.com.au</a></p>
+
+    </td>
+  </tr>
+
+</table>
+</div>
+</body>
+</html>
