@@ -15,7 +15,7 @@
 
     /* ── Wrapper ── */
     .email-wrapper { background-color: #e5e5e5; padding: 20px 0; }
-    .email-body   { background-color: #ffffff; max-width: 600px; margin: 0 auto; }
+    .email-body   { background-color: #ffffff; width: 100%; max-width: 600px; margin: 0 auto; }
 
     @font-face {
       font-family: 'Sohne';
@@ -52,7 +52,7 @@
       color: #1a1a1a;
       text-transform: uppercase;
       display: flex;
-      width: 600px;
+      max-width: 100%;
       flex-direction: column;
       align-items: flex-start;
     }
@@ -90,7 +90,7 @@
       color: #706862;
       text-align: center;
       font-family: 'Arial';
-      font-size: 22px;
+      font-size: 20px;
       font-style: normal;
       font-weight: 400;
       line-height: 34px;
@@ -138,8 +138,8 @@
     .product-cell { width: 50%; padding: 0 8px 24px; vertical-align: top; }
 
     .product-cell img {
-      height: 309px;
-      align-self: stretch;
+      width: 100%;
+      height: auto;
     }
 
     .product-name {
@@ -169,7 +169,7 @@
       width: 18px;
       height: 8px;
       margin-left: 6px;
-      background: url("./Images/Icon.png") no-repeat center;
+      background: url("https://jarrimber-email-template.web.app/Images/Icon.png") no-repeat center;
       background-size: contain;
       vertical-align: middle;
     }
@@ -196,7 +196,7 @@
       color: #DBD6D1;
       text-align: center;
       font-family: 'Arial';
-      font-size: 20px;
+      font-size: 18px;
       font-style: normal;
       font-weight: 400;
       line-height: 34px;
@@ -207,8 +207,8 @@
     .custom-block { background: #ffffff; padding: 40px 40px; text-align: center; }
 
     .custom-img img {
-      width: 520px;
-      height: 294px;
+      max-width: 100%;
+      height: auto;
       flex-shrink: 0;
       aspect-ratio: 237 / 134;
       object-fit: cover;
@@ -263,7 +263,8 @@
     }
 
     .testimonial-divider {
-      width: 307px;
+      width: 80%;
+      max-width: 307px;
       height: 1px;
       border: none;
       background: #009AA4;
@@ -370,25 +371,31 @@
     .footer-url a { color: #ffffff; text-decoration: none; }
 
     /* ── Mobile ── */
-    @media only screen and (max-width: 480px) {
+    @media only screen and (max-width: 600px) {
+      .email-wrapper { padding: 0 !important; }
       .intro-block, .brand-block, .testimonial-block, .custom-block, .footer-block {
         padding-left: 24px !important;
         padding-right: 24px !important;
       }
-      .intro-heading { font-size: 24px !important; }
+      .intro-heading, .section-heading, .custom-heading { font-size: 28px !important; line-height: 36px !important; margin: 32px 0 !important; }
+      .intro-body, .brand-body, .custom-body, .testimonial-quote { font-size: 18px !important; line-height: 28px !important; }
+      .intro-body br, .brand-body br, .brand-heading br, .custom-body br, .testimonial-quote br, .custom-heading br { display: none !important; }
       .product-cell  { display: block !important; width: 100% !important; padding: 0 0 20px !important; }
+      .hero-img img { width: 100% !important; height: auto !important; }
+      .footer-location { font-size: 20px !important; }
+      .footer-logo { max-width: 200px !important; height: auto !important; }
     }
   </style>
 </head>
 <body>
 <div class="email-wrapper">
-<table class="email-body" width="600" cellpadding="0" cellspacing="0" role="presentation" align="center">
+<table class="email-body" width="100%" cellpadding="0" cellspacing="0" role="presentation" align="center" style="max-width: 600px;">
 
   <!-- ─── LOGO ─── -->
   <tr>
     <td class="hero-logo">
       <a href="https://www.jarrimber.com.au/" style="display:inline-block;">
-        <img src="https://jarrimber-email-template.web.app/Images/Jarrimber Logo Text_black 1.png" alt="Jarrimber" />
+        <img src="https://jarrimber-email-template.web.app/Images/logo.png" alt="Jarrimber" />
       </a>
     </td>
   </tr>
@@ -396,7 +403,7 @@
   <!-- ─── HERO IMAGE ─── -->
   <tr>
     <td class="hero-img">
-<img src="https://jarrimber-email-template.web.app/Images/Rectangle%202.png" alt="Jarrimber – handcrafted timber furniture" width="700" />    </td>
+<img src="https://jarrimber-email-template.web.app/Images/banner.png" alt="Jarrimber – handcrafted timber furniture" width="600" style="width: 100%; height: auto;" />    </td>
   </tr>
 
   <!-- ─── INTRO BLOCK ─── -->
@@ -427,14 +434,14 @@
         <tr>
           <td class="product-cell">
             <a href="https://www.jarrimber.com.au/products/dining/extension-tables/">
-              <img src="https://jarrimber-email-template.web.app/Images/rectangle 0.png" alt="Floreat Extension Table" />
+              <img src="https://jarrimber-email-template.web.app/Images/rectangle1.png" alt="Floreat Extension Table" />
             </a>
             <p class="product-name">Floreat Extension Table</p>
             <a class="product-link" href="https://www.jarrimber.com.au/products/dining/extension-tables/">Find out more</a>
           </td>
           <td class="product-cell">
             <a href="https://www.jarrimber.com.au/products/living/display-units/">
-              <img src="https://jarrimber-email-template.web.app/Images/Rectangle 4 (1).png" alt="Bassendean Display Unit" />
+              <img src="https://jarrimber-email-template.web.app/Images/Rectangle2.png" alt="Bassendean Display Unit" />
             </a>
             <p class="product-name">Bassendean Display Unit</p>
             <a class="product-link" href="https://www.jarrimber.com.au/products/living/display-units/">Find out more</a>
@@ -451,14 +458,14 @@
         <tr>
           <td class="product-cell">
             <a href="https://www.jarrimber.com.au/products/bar/bar-stools/bibbulman-boomerang-shoe-seat/">
-              <img src="https://jarrimber-email-template.web.app/Images/Rectangle 4 (2).png" alt="Bibbulman Boomerang Shoe Seat" />
+              <img src="https://jarrimber-email-template.web.app/Images/Rectangle3.png" alt="Bibbulman Boomerang Shoe Seat" />
             </a>
             <p class="product-name">Bibbulman Boomerang Shoe Seat</p>
             <a class="product-link" href="https://www.jarrimber.com.au/products/raw-edge/bedside/">Find out more</a>
           </td>
           <td class="product-cell">
             <a href="https://www.jarrimber.com.au/products/living/tv-units/">
-              <img src="https://jarrimber-email-template.web.app/Images/Rectangle 4 (3).png" alt="Mosman Park TV Unit (Medium)" />
+              <img src="https://jarrimber-email-template.web.app/Images/Rectangle4.png" alt="Mosman Park TV Unit (Medium)" />
             </a>
             <p class="product-name">Mosman Park TV Unit (Medium)</p>
             <a class="product-link" href="https://www.jarrimber.com.au/products/living/tv-units/">Find out more</a>
@@ -475,14 +482,14 @@
         <tr>
           <td class="product-cell">
             <a href="https://www.jarrimber.com.au/products/occasional/coffee-tables/">
-              <img src="https://jarrimber-email-template.web.app/Images/Rectangle 4 (4).png" alt="Mosman Park Coffee Table" />
+              <img src="https://jarrimber-email-template.web.app/Images/Rectangle5.png" alt="Mosman Park Coffee Table" />
             </a>
             <p class="product-name">Mosman Park Coffee Table</p>
             <a class="product-link" href="https://www.jarrimber.com.au/products/occasional/coffee-tables/">Find out more</a>
           </td>
           <td class="product-cell">
             <a href="https://www.jarrimber.com.au/products/occasional/hall-tables/">
-              <img src="https://jarrimber-email-template.web.app/Images/Rectangle 4 (5).png" alt="Broome Pool Hall Table" />
+              <img src="https://jarrimber-email-template.web.app/Images/Rectangle6.png" alt="Broome Pool Hall Table" />
             </a>
             <p class="product-name">Broome Pool Hall Table</p>
             <a class="product-link" href="https://www.jarrimber.com.au/products/occasional/hall-tables/">Find out more</a>
@@ -521,7 +528,7 @@
         <img
           src="https://www.jarrimber.com.au/wp-content/uploads/2025/06/a28547568de89cee6e41ccee6c85196fd1b707aa-1024x576.avif"
           alt="Custom timber furniture, made to order"
-          width="520"
+          width="100%"
         />
       </div>
       <h2 class="custom-heading">Custom timber furniture,<br>made to order.</h2>
@@ -554,7 +561,7 @@
   <tr>
     <td class="footer-block">
 
-      <img class="footer-logo" src="https://jarrimber-email-template.web.app/Images/Jarrimber Logo Text_White 1.png" alt="Jarrimber" />
+      <img class="footer-logo" src="https://jarrimber-email-template.web.app/Images/white-logo.png" alt="Jarrimber" />
 
       <p class="footer-label">Contact Our Showrooms</p>
       <p class="footer-location">Jarrimber</p>
