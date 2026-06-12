@@ -77,17 +77,11 @@
       text-transform: uppercase;
     }
 
-    .intro-heading {
-      align-self: stretch;
-      color: #000;
-      text-align: center;
-      font-family: "classico-urw", serif;
-      font-size: 48px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 56px;
-      margin-top: 56px;
-      margin-bottom: 56px;
+    .intro-heading-img {
+      display: block;
+      margin: 56px auto 56px;
+      max-width: 100%;
+      height: auto;
     }
 
     .intro-body {
@@ -123,17 +117,12 @@
     }
 
     /* ── Section headings ── */
-    .section-heading {
-      align-self: stretch;
-      color: #000;
-      text-align: center;
-      font-family: "classico-urw", serif;
-      font-size: 48px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 56px;
+    .section-heading-img {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
       padding: 40px 40px 35px;
-      margin: 0;
       background: #ffffff;
     }
 
@@ -186,15 +175,11 @@
     /* ── Brand statement ── */
     .brand-block  { background: #1a1a1a; padding: 64px 64px; text-align: center; }
 
-    .brand-heading {
-      color: #F9F9F7;
-      text-align: center;
-      font-family: "classico-urw", serif;
-      font-size: 32px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 42px;
-      margin: 0 0 56px;
+    .brand-heading-img {
+      display: block;
+      margin: 0 auto 56px;
+      max-width: 100%;
+      height: auto;
     }
 
     .brand-body {
@@ -220,15 +205,11 @@
       object-fit: cover;
     }
 
-    .custom-heading {
-      color: #231F20;
-      text-align: center;
-      font-family: "classico-urw", serif;
-      font-size: 32px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 42px;
-      margin: 56px 0 56px;
+    .custom-heading-img {
+      display: block;
+      margin: 56px auto 56px;
+      max-width: 100%;
+      height: auto;
     }
 
     .custom-body {
@@ -246,15 +227,11 @@
     /* ── Testimonials ── */
     .testimonial-block { background: #f0eeea; padding: 40px 40px 40px; text-align: center; }
 
-    .testimonial-heading {
-      color: #231F20;
-      text-align: center;
-      font-family: "classico-urw", serif;
-      font-size: 32px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 42px;
-      margin: 0 0 56px;
+    .testimonial-heading-img {
+      display: block;
+      margin: 0 auto 56px;
+      max-width: 100%;
+      height: auto;
     }
 
     .testimonial-quote {
@@ -377,33 +354,21 @@
 
     /* ── Mobile ── */
     @media only screen and (max-width: 600px) {
-      .intro-block, .brand-block, .testimonial-block, .custom-block, .footer-block, .hero-logo, .product-grid, .section-heading {
+      .intro-block, .brand-block, .testimonial-block, .custom-block, .footer-block, .hero-logo, .product-grid, .section-heading-img {
         padding-left: 20px !important;
         padding-right: 20px !important;
       }
-      .intro-heading { font-size: 32px !important; line-height: 40px !important; margin: 32px 0 !important; }
+      .intro-heading-img, .section-heading-img, .brand-heading-img, .custom-heading-img, .testimonial-heading-img {
+        max-width: 80% !important;
+      }
       .intro-body, .brand-body, .custom-body, .testimonial-quote { 
         font-size: 18px !important; 
         line-height: 28px !important; 
       }
-
-      /* Remove hard breaks to allow natural text flow on mobile */
-      .intro-heading br, 
-      .intro-body br, 
-      .brand-heading br, 
-      .brand-body br, 
-      .custom-heading br, 
-      .custom-body br, 
-      .testimonial-quote br {
-        display: none !important;
-      }
-
       .intro-block, .brand-block, .custom-block, .testimonial-block {
         padding-top: 40px !important;
         padding-bottom: 40px !important;
       }
-
-      /* Center and stack New Arrivals products */
       .product-cell { 
         display: block !important; 
         width: 100% !important; 
@@ -434,14 +399,16 @@
   <!-- ─── HERO IMAGE ─── -->
   <tr>
     <td class="hero-img">
-      <img src="https://jarrimber-email-template.web.app/Images/banner.png" alt="Handcrafted timber furniture" width="600" style="width: 100%; height: auto; display: block;" />    </td>
+      <img src="https://jarrimber-email-template.web.app/Images/banner.png" alt="Handcrafted timber furniture" width="600" style="width: 100%; height: auto; display: block;" />
+    </td>
   </tr>
 
   <!-- ─── INTRO BLOCK ─── -->
   <tr>
     <td class="intro-block">
       <p class="edition-label">Edition One</p>
-      <h1 class="intro-heading">Notes from the<br>workshop</h1>
+      <!-- HEADING IMAGE: replace src with your exported "Notes from the workshop" heading image -->
+      <img class="intro-heading-img" src="https://jarrimber-email-template.web.app/Images/heading1.png" alt="Notes from the workshop" />
       <p class="intro-body">At Jarrimber, we craft bespoke solid timber<br>furniture by hand in our Perth workshop.</p>
       <p class="intro-body">Through these regular updates, we'll share new<br>arrivals, best sellers, timber selection advice,<br>furniture care tips, workshop stories and the latest<br>pieces taking shape.</p>
       <p class="intro-body">We hope you enjoy this first edition of<br>Notes from the Workshop.</p>
@@ -453,8 +420,9 @@
 
   <!-- ─── NEW ARRIVALS HEADING ─── -->
   <tr>
-    <td>
-      <h2 class="section-heading">New arrivals</h2>
+    <td style="background:#ffffff; text-align:center; padding: 40px 40px 35px;">
+      <!-- HEADING IMAGE: replace src with your exported "New arrivals" heading image -->
+      <img src="https://jarrimber-email-template.web.app/Images/heading2.png" alt="New arrivals" style="display:block; margin:0 auto; max-width:100%; height:auto;" />
     </td>
   </tr>
 
@@ -542,10 +510,10 @@
   <!-- ─── BRAND STATEMENT ─── -->
   <tr>
     <td class="brand-block">
-      <p class="brand-heading">Solid timber furniture,<br>handcrafted in Western Australia,<br>one custom piece at a time.</p>
+      <!-- HEADING IMAGE: replace src with your exported "Solid timber furniture..." heading image -->
+      <img class="brand-heading-img" src="https://jarrimber-email-template.web.app/Images/heading3.png" alt="Solid timber furniture, handcrafted in Western Australia, one custom piece at a time." />
       <p class="brand-body">At Jarrimber, we craft solid timber furniture by hand<br>in our Perth workshop using carefully selected<br>Australian hardwoods, including Western Australian<br>Marri and Jarrah, Tasmanian Blackwood and Oak, and<br>Victorian Ash and Blackbutt.</p>
       <p class="brand-body">Timber is chosen for its grain, strength, character and<br>natural variation. The result is furniture shaped with<br>care and built to last.</p>
-      <!-- ✅ FIX: wrapper div carries the 56px margin-top, not the <a> tag -->
       <div class="btn-wrap-about">
         <a class="btn-teal" href="https://www.jarrimber.com.au/about/">Discover our story <img src="https://jarrimber-email-template.web.app/Images/white-arrow-icon.png" width="24" height="24" style="display: inline-block; vertical-align: middle; margin-left: 8px;" alt=""></a>
       </div>
@@ -562,7 +530,8 @@
           width="520"
         />
       </div>
-      <h2 class="custom-heading">Custom timber furniture,<br>made to order.</h2>
+      <!-- HEADING IMAGE: replace src with your exported "Custom timber furniture, made to order." heading image -->
+      <img class="custom-heading-img" src="https://jarrimber-email-template.web.app/Images/heading4.png" alt="Custom timber furniture, made to order." />
       <p class="custom-body">Every home is different, which is why many of our<br>pieces begin with a conversation. We work with<br>clients to create furniture tailored to their space,<br>requirements and timber preferences.</p>
       <p class="custom-body">From dining tables and entertainment units to beds,<br>vanities and one-off commissions, each piece is<br>designed and handcrafted in our Perth workshop.</p>
       <div class="btn-wrap-custom">
@@ -574,7 +543,8 @@
   <!-- ─── TESTIMONIALS ─── -->
   <tr>
     <td class="testimonial-block">
-      <h2 class="testimonial-heading">Testimonials</h2>
+      <!-- HEADING IMAGE: replace src with your exported "Testimonials" heading image -->
+      <img class="testimonial-heading-img" src="https://jarrimber-email-template.web.app/Images/heading5.png" alt="Testimonials" />
       <p class="testimonial-quote">
         Todd was wonderful when ordering our custom-made <br> bedroom suite, chest of drawers and mirror.
         We<br> had been looking at furniture for a long time when we <br>discovered Jarrimber, and it definitely did not<br>
@@ -591,9 +561,7 @@
   <!-- ─── FOOTER ─── -->
   <tr>
     <td class="footer-block">
-
       <img class="footer-logo" src="https://jarrimber-email-template.web.app/Images/white-logo.png" alt="Jarrimber" />
-
       <p class="footer-label">Contact Our Showrooms</p>
       <p class="footer-location">Jarrimber</p>
       <div class="footer-contact">
@@ -601,17 +569,14 @@
         <p class="footer-contact-line">T <a href="tel:+61894445728">(08) 9444 5728</a></p>
         <p class="footer-contact-line">E <a href="mailto:info@jarrimber.com.au">info@jarrimber.com.au</a></p>
       </div>
-
       <p class="footer-location">Home Base Design and Build Centre</p>
       <div class="footer-contact">
         <p class="footer-contact-line">55 Salvado Rd, Subiaco, WA 6008</p>
         <p class="footer-contact-line">T <a href="tel:+61894445728">(08) 9444 5728</a></p>
         <p class="footer-contact-line">E <a href="mailto:info@jarrimber.com.au">info@jarrimber.com.au</a></p>
       </div>
-
       <p class="footer-visit-label">Visit Us Online</p>
       <p class="footer-url"><a href="https://www.jarrimber.com.au/">www.jarrimber.com.au</a></p>
-
     </td>
   </tr>
 
