@@ -9,13 +9,18 @@
   <style>
     /* ── Reset ── */
     body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse !important; }
     img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; display: block; }
     body { margin: 0; padding: 0; background-color: #e5e5e5; font-family: Georgia, 'Times New Roman', serif; }
+    * { box-sizing: border-box; }
 
     /* ── Wrapper ── */
     .email-wrapper { background-color: #e5e5e5; padding: 20px 0; }
-    .email-body   { background-color: #ffffff; max-width: 600px; margin: 0 auto; }
+    .email-body   { 
+      background-color: #ffffff; 
+      max-width: 600px; 
+      margin: 0 auto; 
+    }
 
     @font-face {
       font-family: 'Sohne';
@@ -33,13 +38,13 @@
     /* ── Hero ── */
     .hero-logo {
       text-align: center;
-      padding: 42px 160px 38px;
+      padding: 42px 20px 38px;
       background: #ffffff;
     }
 
     .hero-logo img {
-      height: 34.245px;
-      aspect-ratio: 139 / 17;
+      max-width: 278px;
+      height: auto;
       display: block;
       margin: 0 auto;
     }
@@ -52,7 +57,7 @@
       color: #1a1a1a;
       text-transform: uppercase;
       display: flex;
-      width: 600px;
+      max-width: 100%;
       flex-direction: column;
       align-items: flex-start;
     }
@@ -90,7 +95,7 @@
       color: #706862;
       text-align: center;
       font-family: 'Sohne', sans-serif;
-      font-size: 22px;
+      font-size: 20px;
       font-style: normal;
       font-weight: 300;
       line-height: 34px;
@@ -138,8 +143,9 @@
     .product-cell { width: 50%; padding: 0 8px 24px; vertical-align: top; }
 
     .product-cell img {
-      height: 309px;
-      align-self: stretch;
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     .product-name {
@@ -196,7 +202,7 @@
       color: #DBD6D1;
       text-align: center;
       font-family: 'Sohne', sans-serif;
-      font-size: 20px;
+      font-size: 18px;
       font-style: normal;
       font-weight: 300;
       line-height: 34px;
@@ -207,9 +213,9 @@
     .custom-block { background: #ffffff; padding: 40px 40px; text-align: center; }
 
     .custom-img img {
-      width: 520px;
+      width: 540px;
       height: 294px;
-      flex-shrink: 0;
+      max-width: 100%;
       aspect-ratio: 237 / 134;
       object-fit: cover;
     }
@@ -370,19 +376,32 @@
     .footer-url a { color: #ffffff; text-decoration: none; }
 
     /* ── Mobile ── */
-    @media only screen and (max-width: 480px) {
-      .intro-block, .brand-block, .testimonial-block, .custom-block, .footer-block {
-        padding-left: 24px !important;
-        padding-right: 24px !important;
+    @media only screen and (max-width: 600px) {
+      .intro-block, .brand-block, .testimonial-block, .custom-block, .footer-block, .hero-logo, .product-grid, .section-heading {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
       }
-      .intro-heading { font-size: 24px !important; }
-      .product-cell  { display: block !important; width: 100% !important; padding: 0 0 20px !important; }
+      .intro-heading { font-size: 32px !important; line-height: 40px !important; margin: 32px 0 !important; }
+      .intro-body, .brand-body, .custom-body, .testimonial-quote { font-size: 18px !important; line-height: 28px !important; }
+
+      /* Center and stack New Arrivals products */
+      .product-cell { 
+        display: block !important; 
+        width: 100% !important; 
+        padding: 0 0 40px !important; 
+        text-align: center !important; 
+      }
+      .product-cell img {
+        margin: 0 auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
     }
   </style>
 </head>
 <body>
 <div class="email-wrapper">
-<table class="email-body" width="600" cellpadding="0" cellspacing="0" role="presentation" align="center">
+<table class="email-body" width="100%" cellpadding="0" cellspacing="0" role="presentation" align="center" style="max-width: 600px;">
 
   <!-- ─── LOGO ─── -->
   <tr>
@@ -396,7 +415,7 @@
   <!-- ─── HERO IMAGE ─── -->
   <tr>
     <td class="hero-img">
-<img src="https://jarrimber-email-template.web.app/Images/banner.png" alt="Jarrimber – handcrafted timber furniture" width="700" />    </td>
+      <img src="https://jarrimber-email-template.web.app/Images/banner.png" alt="Handcrafted timber furniture" width="600" style="width: 100%; height: auto; display: block;" />    </td>
   </tr>
 
   <!-- ─── INTRO BLOCK ─── -->
