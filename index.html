@@ -382,7 +382,26 @@
         padding-right: 20px !important;
       }
       .intro-heading { font-size: 32px !important; line-height: 40px !important; margin: 32px 0 !important; }
-      .intro-body, .brand-body, .custom-body, .testimonial-quote { font-size: 18px !important; line-height: 28px !important; }
+      .intro-body, .brand-body, .custom-body, .testimonial-quote { 
+        font-size: 18px !important; 
+        line-height: 28px !important; 
+      }
+
+      /* Remove hard breaks to allow natural text flow on mobile */
+      .intro-heading br, 
+      .intro-body br, 
+      .brand-heading br, 
+      .brand-body br, 
+      .custom-heading br, 
+      .custom-body br, 
+      .testimonial-quote br {
+        display: none !important;
+      }
+
+      .intro-block, .brand-block, .custom-block, .testimonial-block {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+      }
 
       /* Center and stack New Arrivals products */
       .product-cell { 
